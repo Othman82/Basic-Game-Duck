@@ -10,41 +10,56 @@ namespace Basic_Game_Duck
 {
     class Bullet
     {
-        public PictureBox d; //the bullet will be inside a picture box
+        public PictureBox bullet; //the bullet will be inside a picture box
         private int xPos, yPos;
         public Boolean isDisposed = false;
+        string arrowDirection;
 
-
-        public Bullet(Form f, PictureBox arrow)
+        public Bullet(Form f, PictureBox arrow, string arrowDirection)
         {
 
-            d = new PictureBox();
+            bullet = new PictureBox();
             //set the bullet's appearance
-            d.Width = 3;
-            d.Height = 3;
-            d.BackColor = Color.Red;
-            d.Visible = false;
+            bullet.Width = 3;
+            bullet.Height = 3;
+            bullet.BackColor = Color.Red;
+            bullet.Visible = false;
+
+            this.arrowDirection = arrowDirection;
 
             //set start position of the bullet
 
             yPos = arrow.Top + 3;
             xPos = arrow.Left + (arrow.Width / 2);
 
-            d.Location = new Point(xPos, yPos);
-            f.Controls.Add(d);
+            bullet.Location = new Point(xPos, yPos);
+            f.Controls.Add(bullet);
         }
 
         public void MoveBullet(Form f)
         {
-            d.Visible = true;
-            yPos = yPos - 9;
-
-            if (yPos <0)
+            bullet.Visible = true;
+            if (arrowDirection=="up")
             {
-                d.Dispose();
-                isDisposed = true;
+                yPos = yPos - 9;
             }
-            d.Location = new Point(xPos, yPos);
+
+            if (arrowDirection=="down")
+            {
+                yPos = yPos + 9;
+            }
+
+            if (arrowDirection=="left")
+            {
+                xPos = xPos - 9;
+            }
+
+            if (arrowDirection=="right")
+            {
+                xPos = xPos + 9;
+            }
+
+            bullet.Location = new Point(xPos, yPos);
 
 
         }

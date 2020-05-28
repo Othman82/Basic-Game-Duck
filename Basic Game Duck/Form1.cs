@@ -12,27 +12,30 @@ using System.Media;
 namespace Basic_Game_Duck
 {
     public partial class Form1 : Form
-    { 
-     //make a list capable of storing ducks
-    private List<Ducky> ducks = new List<Ducky>();
-    private List<Bullet> bullets = new List<Bullet>();
+    {
+        //make a list capable of storing ducks
+        private List<Ducky> ducks = new List<Ducky>();
+        private List<Bullet> bullets = new List<Bullet>();
+        private GameState gameState;
+        
 
 
+        int duckNumber = 0; // used in array to index each duck
+        string arrowDirection = "up";
 
-    int duckNumber = 0; // used in array to index each duck
-    string arrowDirection = "up";
-    
         public Form1()
         {
             InitializeComponent();
+
+            gameState = new GameState(livesLabel, scoreLabel);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode.Equals (Keys.Space))
+            if (e.KeyCode.Equals(Keys.Space))
             {
-                bullets.Add(new Bullet(this, picBoxUp)); //create a new bullet
+                bullets.Add(new Bullet(this, picBoxUp, arrowDirection)); //create a new bullet
             }
 
             if (e.KeyCode.Equals(Keys.W))
@@ -45,12 +48,12 @@ namespace Basic_Game_Duck
                     picBoxUp.Top = picBoxUp.Top - 30; //reducing top takes us closer to 0 (the absolute top)
                     picBoxUp.Image = Properties.Resources.upArrow; //switch arrow graphic to favour up direction
                     arrowDirection = "up";
-                   
+
                 }
 
-                
+
             }
-           
+
 
             if (e.KeyCode.Equals(Keys.A))
             {
@@ -64,7 +67,7 @@ namespace Basic_Game_Duck
                     arrowDirection = "left";
                 }
 
-                
+
             }
 
 
@@ -75,7 +78,7 @@ namespace Basic_Game_Duck
                 if (picBoxUp.Right < this.Width)  //check we are not at the very right of the form
                 {
 
-                    picBoxUp.Left = picBoxUp.Left+ 10; //reducing top takes us closer to 0 (the absolute top)
+                    picBoxUp.Left = picBoxUp.Left + 10; //reducing top takes us closer to 0 (the absolute top)
                     picBoxUp.Image = Properties.Resources.rightArrow; //switch arrow graphic to favour right direction
                     arrowDirection = "right";
                 }
@@ -115,18 +118,27 @@ namespace Basic_Game_Duck
             ducks.RemoveAll(duck => duck.isDisposed);
 
             foreach (Ducky duck in ducks)
-             {
+            {
                 duck.moveDucky(this);  //call the moveDucky method
 
-              if ( picBoxUp.Bounds.IntersectsWith(duck.d.Bounds)) //check for collision between arrow and all ducks
-
+                if (picBoxUp.Bounds.IntersectsWith(duck.duck.Bounds)) //check for collision between arrow and all ducks
                 {
-                    timer2.Enabled = false; //stop all ducks from moving
 
-                    SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\Alarm01.wav"); //add sound when you lose
-                    simpleSound.Play();
-                    MessageBox.Show("you lose");
-                    return;
+                    if (gameState.isGameOver())
+                    {
+                        timer2.Enabled = false; //stop all ducks from moving
+                        SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\Alarm01.wav"); //add sound when you lose
+                        simpleSound.Play();
+                        MessageBox.Show("you lose");
+                        return;
+                    }
+                    else {
+                        // move player to start position
+                        picBoxUp.Location = new Point(353,344);
+                    }
+
+
+
                 }
 
             }
@@ -138,12 +150,12 @@ namespace Basic_Game_Duck
 
                 foreach (Ducky duck in ducks)
                 {
-                    if (bullet.d.Bounds.IntersectsWith(duck.d.Bounds))
+                    if (bullet.bullet.Bounds.IntersectsWith(duck.duck.Bounds))
                     {
                         bullet.isDisposed = true;
-                        bullet.d.Dispose();
-                        duck.isDisposed = true;
-                        duck.d.Dispose();
+                        bullet.bullet.Dispose();
+                        gameState.increaseScore();
+                        duck.die();
                     }
                 }
 
@@ -154,5 +166,9 @@ namespace Basic_Game_Duck
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
