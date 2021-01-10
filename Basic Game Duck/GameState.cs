@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Basic_Game_Duck
+namespace LaserDefender
 {
     public class GameState
     {

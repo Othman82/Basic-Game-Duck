@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Basic_Game_Duck.Properties {
+namespace LaserDefender.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace Basic_Game_Duck.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,7 +39,7 @@ namespace Basic_Game_Duck.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Basic_Game_Duck.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LaserDefender.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,29 @@ namespace Basic_Game_Duck.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream boom {
+            get {
+                return ResourceManager.GetStream("boom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bulletSound {
+            get {
+                return ResourceManager.GetStream("bulletSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap downArrow {
+        internal static System.Drawing.Bitmap enemyShip {
             get {
-                object obj = ResourceManager.GetObject("downArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("enemyShip", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +91,28 @@ namespace Basic_Game_Duck.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap duck {
+        internal static System.Drawing.Bitmap enemyShipDamaged {
             get {
-                object obj = ResourceManager.GetObject("duck", resourceCulture);
+                object obj = ResourceManager.GetObject("enemyShipDamaged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream loose {
+            get {
+                return ResourceManager.GetStream("loose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playerShip {
+            get {
+                object obj = ResourceManager.GetObject("playerShip", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +120,9 @@ namespace Basic_Game_Duck.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap leftArrow {
+        internal static System.Drawing.Bitmap playerShipDown {
             get {
-                object obj = ResourceManager.GetObject("leftArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("playerShipDown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +130,9 @@ namespace Basic_Game_Duck.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rightArrow {
+        internal static System.Drawing.Bitmap playerShipLeft {
             get {
-                object obj = ResourceManager.GetObject("rightArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("playerShipLeft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +140,9 @@ namespace Basic_Game_Duck.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap upArrow {
+        internal static System.Drawing.Bitmap playerShipRight {
             get {
-                object obj = ResourceManager.GetObject("upArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("playerShipRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

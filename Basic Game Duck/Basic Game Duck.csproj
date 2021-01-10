@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{49EE35AE-1A93-4A5F-BA2E-9ACC6E9194FA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Basic_Game_Duck</RootNamespace>
-    <AssemblyName>Basic Game Duck</AssemblyName>
+    <RootNamespace>LaserDefender</RootNamespace>
+    <AssemblyName>LaserDefender</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
-    <Compile Include="Ducky.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,13 +91,40 @@
     <None Include="Resources\down arrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\up arrow.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\left arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\right arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemyShip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemyShipDamaged.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerShip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerShipRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerShipDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerShipLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boom.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buleetSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemyBlack2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
